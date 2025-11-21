@@ -32,6 +32,19 @@ app.post("/game/leave", (req, res) => {
     res.status(200).send();
 });
 
+app.post("/game/join", (req, res) => {
+    const body = req.body;
+
+    console.log("📤 JoinGame Webhook Received:");
+    console.log(body);
+
+    if (!body || typeof body !== "object") {
+        console.error("❌ Invalid or empty JSON payload");
+        return res.status(400).send("Invalid JSON");
+    }
+
+    res.status(200).send();
+});
 
 // -------------------------
 //   CLOSE GAME WEBHOOK
